@@ -215,9 +215,10 @@ def train(config):
                                  class_num=config["loss"]["class_num"])
 
         similarity_loss.backward()
-        print("Iter: {:05d}, loss: {:.3f}".format(i, similarity_loss.float().data[0]))
+        print(similarity_loss)
+        print("Iter: {:05d}, loss: {:.3f}".format(i, similarity_loss.float().data))
         config["out_file"].write("Iter: {:05d}, loss: {:.3f}".format(i, \
-            similarity_loss.float().data[0]))
+            similarity_loss.float().data))
         optimizer.step()
 
 if __name__ == "__main__":
